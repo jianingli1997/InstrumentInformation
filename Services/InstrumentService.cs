@@ -126,6 +126,11 @@ namespace InstrumentInformation.Services
             return response;
         }
 
+        public Task<ServiceResponse<Instrument>> AddInstrument(Instrument instrument)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private IQueryable<Instrument> ApplyFilters(IQueryable<Instrument> query, InstrumentQueryParams queryParams)
         {

@@ -38,5 +38,7 @@ namespace InstrumentInformation.Services
         /// <param name="pageSize"></param>
         /// <returns></returns>
         Task<PagedServiceResponse<List<Instrument>>> GetInstrumentsByQueryParams(InstrumentQueryParams queryParams,int pageNumber,int pageSize);
+
+        Task<ServiceResponse<Instrument>> AddInstrument(Instrument instrument);
     }
 }
