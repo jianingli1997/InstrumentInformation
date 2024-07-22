@@ -1,6 +1,7 @@
-
+global using InstrumentInformation.Services.InstrumentService;
+global using InstrumentInformation.Services.AuthService;
 using InstrumentInformation.Data;
-using InstrumentInformation.Services;
+using InstrumentInformation.Utils.Profiles;
 using Microsoft.EntityFrameworkCore;
 
 namespace InstrumentInformation
@@ -23,8 +24,15 @@ namespace InstrumentInformation
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             builder.Services.AddScoped<IInstrumentService, InstrumentService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+
+
+            builder.Services.AddAutoMapper(typeof(Program).Assembly);
+            builder.Services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
 
             var app = builder.Build();
 

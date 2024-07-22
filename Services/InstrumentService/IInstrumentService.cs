@@ -1,8 +1,9 @@
-﻿using InstrumentInformation.Models.DTOs.QueryDTO;
-using InstrumentInformation.Models.Entity;
+﻿using InstrumentInformation.Models.DTOs.EntityDTO.InstrumentDTO;
+using InstrumentInformation.Models.DTOs.QueryDTO;
+using InstrumentInformation.Models.Entity.Instrument;
 using InstrumentInformation.Models.Responses;
 
-namespace InstrumentInformation.Services
+namespace InstrumentInformation.Services.InstrumentService
 {
     public interface IInstrumentService
     {
@@ -20,7 +21,7 @@ namespace InstrumentInformation.Services
         /// <returns></returns>
         Task<ServiceResponse<Instrument>> GetInstrumentBySerialNumber(string serialNumber);
 
-        
+
         /// <summary>
         /// 获取某种器械种类的所有器械
         /// </summary>
@@ -28,7 +29,7 @@ namespace InstrumentInformation.Services
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        Task<PagedServiceResponse<List<Instrument>>> GetInstrumentsByInstrumentType (string instrumentTypeName,int pageNumber,int pageSize);
+        Task<PagedServiceResponse<List<Instrument>>> GetInstrumentsByInstrumentType(string instrumentTypeName, int pageNumber, int pageSize);
 
         /// <summary>
         /// 动态参数查询器械
@@ -37,8 +38,12 @@ namespace InstrumentInformation.Services
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        Task<PagedServiceResponse<List<Instrument>>> GetInstrumentsByQueryParams(InstrumentQueryParams queryParams,int pageNumber,int pageSize);
+        Task<PagedServiceResponse<List<Instrument>>> GetInstrumentsByQueryParams(InstrumentQueryParams queryParams, int pageNumber, int pageSize);
 
-        Task<ServiceResponse<Instrument>> AddInstrument(Instrument instrument);
+        Task<ServiceResponse<bool>> AddInstrument(InstrumentDTO instrumentDto);
+
+        Task<ServiceResponse<InstrumentDTO>> UpdateInstrument(InstrumentDTO instrumentDto);
+
+        Task<ServiceResponse<bool>> DeleteInstrument(int instrumentId);
     }
 }

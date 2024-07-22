@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 
+namespace InstrumentInformation.Models.Entity.Enums;
+
 public enum InstrumentTypeEnum
 {
     #region 内窥镜
@@ -171,4 +173,3 @@ public enum InstrumentTypeEnum
 
     #endregion
 }
-

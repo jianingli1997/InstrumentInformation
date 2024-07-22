@@ -1,4 +1,4 @@
-﻿using InstrumentInformation.Models.Entity;
+﻿using InstrumentInformation.Models.Entity.Instrument;
 using System.ComponentModel;
 using System.Reflection;
 

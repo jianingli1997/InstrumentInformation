@@ -1,4 +1,4 @@
-﻿namespace InstrumentInformation.Models.Entity
+﻿namespace InstrumentInformation.Models.Entity.Instrument
 {
     public class Instrument
     {
@@ -13,7 +13,7 @@
 
         public string SerialNumber { get; set; } = string.Empty;
 
-        public DateTime CreatedDate{ get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime ExpiredDate { get; set; } = DateTime.MaxValue;
 
         public int UsableCount { get; set; } = 10;

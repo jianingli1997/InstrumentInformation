@@ -1,4 +1,6 @@
-﻿using InstrumentInformation.Models.Entity;
+﻿using InstrumentInformation.Models.Entity.Enums;
+using InstrumentInformation.Models.Entity.Instrument;
+using InstrumentInformation.Models.Entity.User;
 using InstrumentInformation.Utils.Converter;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,24 @@ namespace InstrumentInformation.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // modelBuilder.Entity<User>().ToTable("users");
+            // modelBuilder.Entity<Role>().ToTable("roles");
+            // modelBuilder.Entity<UserRole>().ToTable("user_roles");
+            // modelBuilder.Entity<UserRole>()
+            //     .HasKey(ur => new { ur.UserId, ur.RoleId });
+            //
+            // // Configure relationship between User and UserRole
+            // modelBuilder.Entity<UserRole>()
+            //     .HasOne(ur => ur.User)
+            //     .WithMany()
+            //     .HasForeignKey(ur => ur.UserId);
+            //
+            // modelBuilder.Entity<UserRole>()
+            //     .HasOne(ur => ur.Role)
+            //     .WithMany()
+            //     .HasForeignKey(ur => ur.RoleId);
+
+
             List<InstrumentType> instrumentTypes =
                 EnumToInstrumentTypeConverter.ConvertEnumToInstrumentTypeList<InstrumentTypeEnum>();
             modelBuilder.Entity<Instrument>()
@@ -150,11 +170,22 @@ namespace InstrumentInformation.Data
                     Name = "超声刀头510",
                     InstrumentTypeId = 99,
                     Description = "器械1的描述"
+                },
+                new Instrument
+                {
+                    Id = 25,
+                    SerialNumber = "45656dadasdas",
+                    Name = "超声刀头510",
+                    InstrumentTypeId = 99,
+                    Description = "器械1的描述"
                 }
             );
         }
 
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<InstrumentType> InstrumentTypes { get; set; }
+        // public DbSet<User> Users { get; set; }
+        // public DbSet<Role> Roles { get; set; }
+        // public DbSet<UserRole> UserRoles { get; set; }
     }
 }

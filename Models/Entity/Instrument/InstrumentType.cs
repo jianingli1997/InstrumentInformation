@@ -1,4 +1,4 @@
-﻿namespace InstrumentInformation.Models.Entity
+﻿namespace InstrumentInformation.Models.Entity.Instrument
 {
     public class InstrumentType
     {
